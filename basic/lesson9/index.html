@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="divka" id="divo4ka"> 1</div>
+<!--<div class="divka"> 2 </div>-->
+<!--<div class="divka"> 3 </div>-->
+<input type="text" id="red">
+<input type="text" id="green">
+<input type="text" id="blue">
+
+
+<p id="secret_text">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque perspiciatis placeat quam unde voluptas. Est exercitationem illo, impedit in labore laudantium, libero magnam minus modi natus sed soluta totam voluptatum.
+</p>
+
+<button id="button"> CLICK</button>
+</body>
+
+<script>
+
+    // const user = {
+    //     name: 'ROMAN',
+    //     surname: "Z",
+    //     password: 12345,
+    //     car: true
+    // }
+    //
+    // fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    //     .then(value => value.json())
+    //     .then(value => {
+    //         console.table(value);
+    //
+    //         value.forEach(kurs => {
+    //             let {ccy, base_ccy, buy, sale} = kurs;
+    //             buy = (+buy).toFixed(2);
+    //             sale = (+sale).toFixed(2);
+    //             document.write(`${ccy} to ${base_ccy} is: ${buy} - ${sale}`);
+    //             document.write(`<br>`)
+    //         })
+    //     });
+    //
+    //
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    //     .then(value => value.json())
+    //     .then(users => {
+    //         console.table(users);
+    //
+    //         users.forEach(user => {
+    //             document.write(JSON.stringify(user));
+    //             document.write(`<hr>`);
+    //         })
+    //     })
+    //
+    //
+    // navigator.geolocation.getCurrentPosition(position => {
+    //     let coords = position.coords;
+    //
+    //     console.log(coords);
+    // });
+    //
+    // localStorage.setItem('SAVE', 'SUPER SECRET HASH')
+    // localStorage.setItem('TOKEN', '%^&*()_+DKFNJSFDFSNDFSLFS')
+    //
+    //
+    // let item = localStorage.getItem('SAVE');
+    // let token = localStorage.getItem('TOKEN');
+    //
+    // // localStorage.removeItem('SAVE')
+    //
+    // // localStorage.clear();
+    //
+    // localStorage.setItem('USER', JSON.stringify(user));
+    //
+    // let s = localStorage.getItem('USER');
+    //
+    // s = JSON.parse(s);
+    //
+    // console.log(s);
+    //
+    // let elementById = document.getElementById('divo4ka');
+    //
+    // let elementsByClassName = document.getElementsByClassName('divka');
+    //
+    // for (let i = 0; i < elementsByClassName.length; i++) {
+    //     const red = Math.random()*255;
+    //     const green = Math.random()*255;
+    //     const blue = Math.random()*255;
+    //
+    //     elementsByClassName[i].style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    // }
+    //
+
+    let elementById = document.getElementById('button');
+    let divka = document.getElementById('divo4ka');
+
+    let is_visible = true;
+
+    // elementById.onclick = () => {
+    //     const red = Math.random() * 255;
+    //     const green = Math.random() * 255;
+    //     const blue = Math.random() * 255;
+    //
+    //     divka.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    // }
+
+    // elementById.onclick = () => {
+    //     if (is_visible) {
+    //         divka.style.display = `none`;
+    //         is_visible = !is_visible;
+    //     } else {
+    //         divka.style.display = `block`;
+    //         is_visible = !is_visible;
+    //     }
+    // }
+    //
+    // divka.onmouseleave = () => {
+    //     console.log('LEAVE');
+    // }
+    //
+    //
+    // divka.onmouseover = () => {
+    //     console.log('OVER');
+    // }
+
+
+    // console.log(elementById);
+    //
+    // elementById.innerHTML = `<li> HELLO </li>
+    //                          <li> WORLD </li>`
+
+
+    // elementById.style.backgroundColor = 'green'
+
+    let redInpt = document.getElementById('red');
+    let greenInpt = document.getElementById('green');
+    let blueInpt = document.getElementById('blue');
+
+    divka.onmousemove = (ev) => {
+        let posY = ev.clientY
+        let posX = ev.clientX
+
+        redInpt.value = 'RED ' + posY
+        greenInpt.value = 'GREEN ' +posX
+        blueInpt.value = 'BLUE ' + (posY + posX) / 2
+
+        divka.style.backgroundColor =
+            `rgb(${posY}, ${posX}, ${(posY + posX) / 2})`
+    };
+
+
+
+    elementById.onclick = () => {
+        const red = redInpt.value
+        const green = greenInpt.value
+        const blue = blueInpt.value
+
+        alert(`RED ID ${red}; BLUE IS ${blue}; GREES ID: ${green}`)
+    }
+
+    let secretText = document.getElementById('secret_text');
+
+    secretText.oncopy = () => {
+        secretText.innerText = ''
+        return false;
+    }
+
+// window.onbeforeunload() - это функция, которая вызовет всплывающее уведомление, если пользователь попытается закрыть страницу.
+
+</script>
+
+<style>
+    .divka {
+        background-color: coral;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>
