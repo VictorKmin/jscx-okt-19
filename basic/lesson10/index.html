@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<!--<form action="" name="myForm">-->
+<!--    <input type="text" name="email" placeholder="Emal">-->
+<!--    <input type="text" name="name" placeholder="Name">-->
+<!--    <input type="password" name="password" placeholder="PASSSWPRD">-->
+<!--    <input type="submit" name="ok" value="OK">-->
+<!--</form>-->
+<!---->
+<!--<input type="text" id="email" placeholder="Emal">-->
+<!--<input type="text" id="name" placeholder="Name">-->
+<!--<input type="password" id="password" placeholder="PASSSWPRD">-->
+<!--<input type="submit" id="submit" value="OK">-->
+<!---->
+<!--<div class='green' id='green'>-->
+<!--    <div class='blue' id='blue'>-->
+<!--        <div class='colar' id='colar'></div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<button id="get-users"> GET USERS</button>
+
+<script>
+
+    // const green = document.getElementById('green');
+    // const blue = document.getElementById('blue');
+    // const colar = document.getElementById('colar');
+    //
+    // // colar.addEventListener('click', ev => {
+    // //     console.log('CLOAR');
+    // //
+    // //     ev.stopPropagation()
+    // //
+    // //     // console.log(ev);
+    // //
+    // //     // ev.path[1].style.backgroundColor = 'yellow'
+    // //
+    // //
+    // // }, true);
+    // //
+    // // blue.addEventListener('click', ev => {
+    // //     console.log('blue');
+    // //     ev.stopPropagation();
+    // //
+    // //     // console.log(ev);
+    // //
+    // // }, true);
+    // //
+    // // green.addEventListener('click', ev => {
+    // //     console.log('green');
+    // //     ev.stopPropagation()
+    // //
+    // // }, true)
+    //
+    // // green.onclick = (ev) =>{
+    // //     ev.stopPropagation()
+    // //     console.log('green')
+    // // }
+    // //
+    // // blue.onclick = (ev) =>{
+    // //     ev.stopPropagation()
+    // //     console.log('blue')
+    // // }
+    // //
+    // // colar.onclick = (ev) =>{
+    // //     ev.stopPropagation()
+    // //     console.log('colar')
+    // // }
+    //
+    //
+    // // const email = document.getElementById('email');
+    // // const name = document.getElementById('name');
+    // // const pass = document.getElementById('password');
+    // // const submit = document.getElementById('submit');
+    // //
+    // // submit.onclick = () => {
+    // //     console.log(name.value);
+    // //     console.log(email.value);
+    // //     console.log(pass.value);
+    // // }
+    // //
+    // // let myForm = document.forms.myForm;
+    // //
+    // // const mail = myForm.email;
+    // // const name = myForm.name;
+    // // const password = myForm.password;
+    // // const ok = myForm.ok;
+    // //
+    // // ok.onclick = (ev) => {
+    // //     ev.preventDefault();
+    // //
+    // //     console.log(mail.value);
+    // //     console.log(name.value);
+    // //     console.log(password.value);
+    // // }
+
+    //
+    // const getUsers = document.getElementById('get-users');
+    //
+    // getUsers.onclick = () => {
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //     .then(value => value.json())
+    //     .then(users => {
+    //             userLogger(users)
+    //     })
+    // }
+    //
+    // function userLogger(users) {
+    //
+    //     users.forEach(user => {
+    //
+    //         const {id, name, username} = user;
+    //
+    //         const div = document.createElement('div');
+    //         const button = document.createElement('button');
+    //         button.innerHTML = `${id} DELETE ${name}`;
+    //
+    //
+    //         document.body.appendChild(div);
+    //         document.body.appendChild(button);
+    //
+    //         div.style.marginTop = '20px';
+    //         div.innerHTML = `
+    //                 ${id}.Name: ${name}
+    //                 <br>
+    //                 Surname: ${username}  `;
+    //
+    //
+    //
+    //         button.onclick = (ev) => {
+    //             const html = ev.target.innerText
+    //             let [id] = html.split(' ');
+    //
+    //             console.log(id);
+    //
+    //             const index = users.findIndex(user => +user.id === +id);
+    //
+    //             console.log(index);
+    //
+    //             users.splice(index, 1)
+    //
+    //             userLogger(users)
+    //         }
+    //     })
+    // }
+
+
+    const arr = [1009090, 2, 4, 5, 54, 5];
+
+    const [, , third] = arr;
+
+
+    // console.log(first);
+    // console.log(second);
+    // console.log(third);
+    //
+    // const first = arr[0]
+    // const second = arr[1]
+    // const third = arr[2]
+    //
+    //
+    // const name = 'MyOldNick';
+    //
+    // const user = {name: 'Тортик', age: 99};
+    //
+    // const {age, name: tortikName} = user;
+
+    // arr.forEach(n => {
+    //     if (n > 10) {
+    //         continue;
+    //     }
+    //
+    //     console.log(n);
+    // })
+
+    let text = '';
+
+    for (let i = 0; i < 10; i++) {
+        if (i === 3) {
+            continue;
+        }
+        text = text + i;
+    }
+
+    console.log(text);
+
+
+</script>
+
+</body>
+
+
+<style>
+    .green {
+        width: 400px;
+        height: 400px;
+        background-color: green;
+    }
+
+    .blue {
+        width: 250px;
+        height: 250px;
+        background-color: blue;
+    }
+
+    .colar {
+        width: 150px;
+        height: 150px;
+        background-color: coral;
+    }
+</style>
+</html>
