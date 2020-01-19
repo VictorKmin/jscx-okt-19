@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="name">
+<input type="text" id="phone">
+<button id="add"> ADD </button>
+
+<script>
+  const add = document.getElementById('add');
+  const phoneInput = document.getElementById('phone');
+  const nameInput = document.getElementById('name');
+
+
+  add.onclick = () => {
+      const name = nameInput.value;
+      const phone = phoneInput.value;
+
+      localStorage.setItem(name, phone)
+      phoneInput.value = ''
+      nameInput.value = ''
+  }
+
+  console.log(localStorage.getItem('KARINA'));
+
+
+  phoneInput.oninput = () => {
+      localStorage.setItem('PHONE', phoneInput.value)
+  }
+
+</script>
+
+</body>
+</html>
