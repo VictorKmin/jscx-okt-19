@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="left"> <</button>
+<img src="36957183.jpeg" alt="1">
+<img src="54153646.jpeg" alt="2">
+<img src="57859859.jpeg" alt="3">
+<button id="right"> ></button>
+
+<script>
+  let showedIndex = 0;
+
+  const images = document.getElementsByTagName('img');
+  const rBtn = document.getElementById('right');
+  const lBtn = document.getElementById('left');
+
+  images[showedIndex].style.display = 'inline-block';
+
+  rBtn.onclick = () => {
+    showedIndex++;
+
+    if (showedIndex >= images.length) {
+      showedIndex = 0;
+    }
+
+    console.log(showedIndex);
+
+    for (let i = 0; i < images.length; i++) {
+      if (showedIndex === i) {
+        images[i].style.display = 'inline-block'
+      } else {
+        images[i].style.display = 'none'
+      }
+    }
+  };
+
+  lBtn.onclick = () => {
+    showedIndex--;
+
+    if (showedIndex < 0) {
+      showedIndex = images.length - 1;
+    }
+    console.log(showedIndex);
+
+    for (let i = 0; i < images.length; i++) {
+      if (showedIndex === i) {
+        images[i].style.display = 'inline-block'
+      } else {
+        images[i].style.display = 'none'
+      }
+    }
+  };
+
+  console.log(images);
+
+</script>
+
+</body>
+<style>
+    button {
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+    }
+
+    img {
+        display: none;
+    }
+</style>
+</html>
