@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Create dataBase jscx-oct-19 and use it
+--
+
+CREATE DATABASE IF NOT EXISTS `jscx-oct-19`;
+
+USE `jscx-oct-19`;
+
+--
 -- Table structure for table `lesson`
 --
 
