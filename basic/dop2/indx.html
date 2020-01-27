@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text">
+<input type="text">
+<input type="text">
+
+<button id="left"> <</button>
+<button id="right"> ></button>
+<br>
+<button id="save">SAVE</button>
+
+
+<script>
+
+  //  const [email, name, pass] = document.getElementsByTagName('input');
+  //  const save = document.getElementById('save');
+  //  const left = document.getElementById('left');
+  //  const right = document.getElementById('right');
+  //
+  //  let emailLocalInfo = localStorage.getItem('email');
+  //  let nameLocalInfo = localStorage.getItem('name');
+  //  let passLocalInfo = localStorage.getItem('pass');
+  //
+  //  if (!emailLocalInfo) {
+  //    localStorage.setItem('email', JSON.stringify([]))
+  //  }
+  //  if (!nameLocalInfo) {
+  //    localStorage.setItem('name', JSON.stringify([]))
+  //  }
+  //  if (!passLocalInfo) {
+  //    localStorage.setItem('pass', JSON.stringify([]))
+  //  }
+  //
+  //  emailLocalInfo = JSON.parse(localStorage.getItem('email'));
+  //  nameLocalInfo = JSON.parse(localStorage.getItem('name'));
+  //  passLocalInfo = JSON.parse(localStorage.getItem('pass'));
+  //
+  //  let currIndex = null;
+  //
+  //  save.onclick = () => {
+  //
+  //    emailLocalInfo.push(email.value);
+  //    nameLocalInfo.push(name.value);
+  //    passLocalInfo.push(pass.value);
+  //
+  //    localStorage.setItem('email', JSON.stringify(emailLocalInfo));
+  //    localStorage.setItem('name', JSON.stringify(nameLocalInfo));
+  //    localStorage.setItem('pass', JSON.stringify(passLocalInfo));
+  //  };
+  //
+  //  left.onclick = () => {
+  //    let emailLocalInfo = JSON.parse(localStorage.getItem('email'));
+  //    let nameLocalInfo = JSON.parse(localStorage.getItem('name'));
+  //    let passLocalInfo = JSON.parse(localStorage.getItem('pass'));
+  //
+  //    if (!currIndex && currIndex !== 0) {
+  //      currIndex = emailLocalInfo.length - 1;
+  //    }
+  //
+  //    email.value = emailLocalInfo[currIndex];
+  //    name.value = nameLocalInfo[currIndex];
+  //    pass.value = passLocalInfo[currIndex];
+  //
+  //    currIndex--;
+  //    console.log(currIndex);
+  //  };
+  //
+  //  right.onclick = () => {
+  //    let emailLocalInfo = JSON.parse(localStorage.getItem('email'));
+  //    let nameLocalInfo = JSON.parse(localStorage.getItem('name'));
+  //    let passLocalInfo = JSON.parse(localStorage.getItem('pass'));
+  //
+  //    if (!currIndex && currIndex !== 0) {
+  //      currIndex = 0;
+  //    }
+  //
+  //    email.value = emailLocalInfo[currIndex];
+  //    name.value = nameLocalInfo[currIndex];
+  //    pass.value = passLocalInfo[currIndex];
+  //
+  //    currIndex++;
+  //    console.log(currIndex);
+  //  }
+
+  // console.time('PRIVATE')
+  //
+  // fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+  //   .then(value => value.json())
+  //   .then(data => {
+  //     console.log(data);
+  //   });
+  //
+  // console.timeEnd('PRIVATE')
+  //
+  //
+  // console.time('JSON')
+  // fetch("https://jsonplaceholder.typicode.com/users")
+  //   .then(value => value.json())
+  //   .then(todos => {
+  //     console.log(todos);
+  //   });
+  //
+  // console.timeEnd('JSON')
+
+
+  function wakeUp(isGood) {
+    return new Promise((resolve, reject) => {
+      if (isGood) {
+        resolve([1, 2, 435, 'HELLO'])
+      } else {
+        reject({name: 'Roman', surname: 'Z'})
+      }
+    })
+  }
+
+  wakeUp(true)
+    .then(xxx => {
+      console.log(xxx);
+    })
+    .catch(ttt =>  {
+      console.log(ttt);
+    })
+
+</script>
+
+</body>
+</html>
