@@ -74,7 +74,6 @@ app.get('/', (req, res) => {
 app.get('/users', async (req, res) => {
     const users = await getUsers()
 
-    console.log(users);
     res.render('users', {users})
 })
 
@@ -106,6 +105,7 @@ app.post('/auth', (req, res) => {
 
 app.post('/reg', async (req, res) => {
     await createUser(req.body);
+
     res.redirect('/users')
 })
 
