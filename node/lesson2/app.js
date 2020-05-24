@@ -49,24 +49,14 @@
 const express = require('express');
 const exprsBars = require('express-handlebars');
 const path = require('path');
+const {createUser, getUsers} = require('./service/user.service')
 
 const app = express();
-
-const users = [
-    {
-        name: "Dima",
-        age: 22
-    },
-    {
-        name: "Vova",
-        age: 44
-    },
-]
 
 app.use(express.json());
 app.use(express.urlencoded());
 
-express.static(path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 
 app.engine('.hbs', exprsBars({
@@ -78,17 +68,13 @@ app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('main', {name: 'Viktor', showed: false})
+    res.render('main', {name: 'Viktor', showed: true})
 })
 
+app.get('/users', async (req, res) => {
+    const users = await getUsers()
 
-app.get('/users', (req, res) => {
-    // res.write('HELLO WORLD');
-    // res.write('HELLO WORLD  2222');
-    // res.write('HELLO WORLD  33333');
-    // res.write('HELLO WORLD  4444');
-    // res.end()
-
+    console.log(users);
     res.render('users', {users})
 })
 
@@ -97,11 +83,30 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
+app.get('/login', (req, res) => {
+    res.render('login')
+})
 
-app.post('/reg', (req, res) => {
-    console.log(req.body);
+app.post('/auth', (req, res) => {
+    const {email, password} = req.body;
+    const user = users.find(user => user.email === email);
 
-    res.end()
+    if (!user) {
+        return res.render('error', {message: 'Wrong email or password'})
+    }
+    // hash password -> hash string
+
+    if (user.password !== password) {
+        return res.render('error', {message: 'Wrong email or password'})
+    }
+
+    res.json({email, name: user.name});
+})
+
+
+app.post('/reg', async (req, res) => {
+    await createUser(req.body);
+    res.redirect('/users')
 })
 
 app.listen(5000, (err) => {

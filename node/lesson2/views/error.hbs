@@ -6,18 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
-<form action="/reg" method="post">
-    <input type="text" name="name" placeholder="Viktor">
-    <input type="number" name="age" placeholder="22">
-    <input type="text" name="email" placeholder="vikto@gmail.com">
-    <input type="text" name="password" placeholder="********">
-    <input type="submit" value="OK">
-</form>
-
+    <div class="error">
+        {{message}}
+    </div>
 
 </body>
 </html>
