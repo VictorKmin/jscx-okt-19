@@ -10,10 +10,10 @@ module.exports = {
         return UserModel.findAll({})
     },
 
-    createUser: (user) => {
+    createUser: (email, name, password) => {
         const UserModel = db.getModel('User');
 
-        return UserModel.create(user)
+        return UserModel.create({email, name, password})
     }
 
 };

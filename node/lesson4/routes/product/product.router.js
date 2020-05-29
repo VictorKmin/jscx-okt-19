@@ -1,27 +1,15 @@
 const {Router} = require('express');
 
+const {productController} = require('../../controllers')
+const {productMiddleware} = require('../../middlewares')
+
 const productRouter = Router();
 
+productRouter.get('/', productController.getAllProducts);
 
-productRouter.post('/', (req, res) => {
-    console.log(req.body);
-    res.end('POST products')
-});
-
-productRouter.get('/', (req, res) => {
-    res.end('GTE products')
-})
-
-productRouter.put('/', (req, res) => {
-    res.end('PUT products')
-});
-
-productRouter.delete('/:name', (req, res) => {
-    const params = req.params
-    const query = req.query;
-
-    res.json({params, query})
-})
+productRouter.use('/:productId', productMiddleware.checkIsProductsExists);
+productRouter.get('/:productId', productController.getById)
+productRouter.delete('/:productId', productController.deleteProduct)
 
 
 module.exports = productRouter;

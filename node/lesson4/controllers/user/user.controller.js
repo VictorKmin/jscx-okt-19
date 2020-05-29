@@ -1,15 +1,16 @@
-const {userService} = require('../../service')
+const {productService} = require('../../service')
 
 module.exports = {
-    getAllUsers: async (req, res) => {
-        let users = await userService.getUsers();
+    getAllProducts: async (req, res) => {
+        let products = await productService.getAllProducts();
 
-        res.json(users)
-        // res.render('users', {users})
+        res.json(products)
     },
 
-    updateUser: (req, res) => {
-        res.end('PUT users')
+    getProductById: async (req, res) => {
+        const {productId} = req.params;
+        let product = await productService.getProductById(id);
+        res.json(product)
     },
 
     deleteUser: (req, res) => {
@@ -21,12 +22,13 @@ module.exports = {
 
     createUser: async (req, res) => {
         try {
-            await userService.createUser(req.body);
+            const {email, name, password} = req.body;
+            await userService.createUser(email, name, password) ;
         } catch (e) {
             res.json(e)
         }
 
         res.end()
-        // res.redirect('/users')
+        // res.redirect('/products')
     }
 };

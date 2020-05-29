@@ -7,7 +7,7 @@ const checkUserValidity = require('../../middlewares/user/check-is-user-valid.mi
 
 
 userRouter.post('/',
-    // checkUserValidity,
+    checkUserValidity,
     userController.createUser);
 
 userRouter.get('/', userController.getAllUsers);
