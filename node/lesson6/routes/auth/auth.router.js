@@ -8,7 +8,7 @@ const {authMiddleware} = require('../../middlewares')
 
 authRouter.post('/', authController.loginUser);
 authRouter.post('/logout', authMiddleware.checkAccessToken, authController.logoutUser);
-authRouter.post('/refresh', authMiddleware.checkAccessToken, authController.logoutUser); // TODO
+authRouter.post('/refresh', authMiddleware.checkRefreshToken, authController.refreshToken);
 
 
 
